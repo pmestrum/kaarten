@@ -31,15 +31,36 @@ const setJitsi = (roomName) => {
     roomName: roomName,
 //    width: '300px',
     parentNode: document.getElementById('jitsi'),
-    configOverwrite: {},
+    configOverwrite: {
+      maxFullResolutionParticipants: -1,
+      disableTileEnlargement: true,
+      disableResponsiveTiles: true,
+      filmStripOnly: true,
+      enableWelcomePage: false,
+      defaultLanguage: 'nl',
+      prejoinConfig: {
+        enabled: false,
+      }
+/*
+      constraints: {
+            video: {
+                height: {
+                    ideal: 400,
+                    max: 400,
+                    min: 240
+                }
+            }
+        },
+*/
+    },
     interfaceConfigOverwrite: {
       SHOW_WATERMARK_FOR_GUESTS: false,
       SHOW_JITSI_WATERMARK: false,
       DISABLE_TRANSCRIPTION_SUBTITLES: true,
       DISABLE_PRESENCE_STATUS: true,
-      VERTICAL_FILMSTRIP: true,
-      TILE_VIEW_MAX_COLUMNS: 1,
-      // filmStripOnly: true,
+      VERTICAL_FILMSTRIP: false,
+      TILE_VIEW_MAX_COLUMNS: 2,
+      VIDEO_LAYOUT_FIT: 'width',
       // TOOLBAR_BUTTONS: []
     },
   });
