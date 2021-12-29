@@ -32,12 +32,12 @@ export class JitsiVideoChatComponent implements AfterViewInit, OnDestroy {
     this.jitsiApi = new JitsiMeetExternalAPI('meet.jit.si', {
       roomName: 'kaartenmetonsvierkes',
 //    width: '300px',
-      height: '100%',
+      //height: '100%',
       parentNode: this.jitsiContainer.nativeElement,
       configOverwrite: {
-        maxFullResolutionParticipants: -1,
-        disableTileEnlargement: true,
-        disableResponsiveTiles: true,
+        // maxFullResolutionParticipants: -1,
+        disableTileEnlargement: true, // zorgt voor geen grote video in tile
+        disableResponsiveTiles: false,
         filmStripOnly: true,
         enableWelcomePage: false,
         defaultLanguage: 'nl',
@@ -61,10 +61,10 @@ export class JitsiVideoChatComponent implements AfterViewInit, OnDestroy {
         SHOW_JITSI_WATERMARK: false,
         DISABLE_TRANSCRIPTION_SUBTITLES: true,
         DISABLE_PRESENCE_STATUS: true,
-        VERTICAL_FILMSTRIP: false,
+        VERTICAL_FILMSTRIP: true,
         TILE_VIEW_MAX_COLUMNS: 1,
         VIDEO_LAYOUT_FIT: 'width',
-        // TOOLBAR_BUTTONS: []
+        TOOLBAR_BUTTONS: ['tileview', 'microphone', 'hangup']
       },
     });
 
