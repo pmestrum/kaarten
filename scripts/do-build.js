@@ -58,10 +58,10 @@ const doAddTimestampInIndexHtml = async () => {
             }
             const timestamp = new Date().getTime();
             const variableFactor = `?timestamp=${timestamp}`;
-            data = data.replace(new RegExp(`href="styles.css(/?[^"]+)?"`), `href="styles.css${variableFactor}"`);
+            data = data.replace(new RegExp(`href="styles.css(/?[^"]+)?"`, 'g'), `href="kaarten/styles.css${variableFactor}"`);
             // <script src="runtime.js" type="module"></script><script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script>
             ['runtime', 'polyfills', 'main'].forEach(script => {
-                data = data.replace(new RegExp(`src="${script}.js(/?[^"]+)?"`), `src="${script}.js${variableFactor}"`);
+                data = data.replace(new RegExp(`src="${script}.js(/?[^"]+)?"`), `src="kaarten/${script}.js${variableFactor}"`);
             })
             fs.writeFile('index.html', data, 'utf8', error => {
                 if (error) {
