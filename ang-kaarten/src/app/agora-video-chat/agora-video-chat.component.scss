@@ -1,0 +1,22 @@
+$buttons-height: 40px;
+
+app-participant {
+  width: calc( 100% - 20px);
+  height: calc( ((100% - $buttons-height) / 4) - 20px );
+
+  &.muted {
+    background-color: red;
+    border: red solid 5px;
+    box-sizing: border-box;
+  }
+}
+
+app-agora-buttons {
+  height: $buttons-height;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}

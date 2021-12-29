@@ -1,0 +1,23 @@
+<div>
+  <div id="sidebar">
+    <div id="video-switch">
+      <app-video-switch
+        [selected]="selectedVideoChat"
+        (selectAgora)="selectAgora()"
+        (selectJitsi)="selectJitsi()"
+        (gotoOldSite)="gotoOldSite()"
+      ></app-video-switch>
+    </div><div id="video-chat-container">
+      <div id="jitsi-container" class="video-container" *ngIf="selectedVideoChat === 'jitsi'">
+        <app-jitsi-video-chat></app-jitsi-video-chat>
+      </div>
+      <div id="agora-container" class="video-container" *ngIf="selectedVideoChat === 'agora'">
+        <app-agora-video-chat></app-agora-video-chat>
+      </div>
+    </div>
+  </div>
+  <div id="whisthub-container">
+    <app-whist-hub></app-whist-hub>
+  </div>
+</div>
+

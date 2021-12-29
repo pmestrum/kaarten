@@ -1,0 +1,4 @@
+<div class="buttons-container">
+  <div class='button unmuted' (click)="isMuted = true; mute.emit(true)" *ngIf="!isMuted"><fa-icon [icon]="volumeUp"></fa-icon></div>
+  <div class='button muted' (click)="isMuted = false; mute.emit(false)" *ngIf="isMuted"><fa-icon [icon]="volumeMute"></fa-icon></div>
+</div>

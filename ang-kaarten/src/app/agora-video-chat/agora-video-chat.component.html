@@ -1,0 +1,3 @@
+<app-participant [id]="localCallId" [stream]="localStream" [isMuted]="muteStates['local']" [ngClass]="{muted: muteStates['local']}"></app-participant>
+<app-participant *ngFor="let callId of remoteCalls" [id]="callId" [stream]="remoteStreams[callId]" [isMuted]="muteStates[callId]" [ngClass]="{muted: muteStates[callId]}"></app-participant>
+<app-agora-buttons (mute)="mute($event)"></app-agora-buttons>
