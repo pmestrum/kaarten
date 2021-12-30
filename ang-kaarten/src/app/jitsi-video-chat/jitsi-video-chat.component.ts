@@ -80,5 +80,4 @@ export class JitsiVideoChatComponent implements AfterViewInit, OnDestroy {
 
     this.jitsiApi.executeCommand('toggleTileView');
   }
-
 }

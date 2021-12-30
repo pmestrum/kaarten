@@ -1,5 +1,6 @@
 <div class="button-container">
   <div class="button" id="agora" [ngClass]="{selected: selected === 'agora'}" (click)="selectAgora.emit()">Agora</div>
   <div class="button" id="jitsi" [ngClass]="{selected: selected === 'jitsi'}" (click)="selectJitsi.emit()">Jitsi</div>
-  <div class="button" id="oldsite" (click)="gotoOldSite.emit()">Oude website</div>
+  <div class="button" id="off" [ngClass]="{selected: selected === 'off'}" (click)="selectOff.emit()">Geen</div>
+  <div class="button" id="oldsite" (click)="gotoOldSite.emit()">Oude site</div>
 </div>

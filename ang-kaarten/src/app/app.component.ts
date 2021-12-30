@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,16 +7,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  selectedVideoChat: 'agora' | 'jitsi' = 'agora';
+  selectedVideoChat: 'agora' | 'jitsi' | 'off' = 'agora';
 
-  constructor() {
+  constructor(private cd: ChangeDetectorRef) {
   }
 
   ngOnInit() {
+    this.initHangUpTimeout();
   }
 
   selectJitsi() {
     this.selectedVideoChat = 'jitsi';
+  }
+
+  selectOff() {
+    this.selectedVideoChat = 'off';
   }
 
   selectAgora() {
@@ -30,4 +35,13 @@ export class AppComponent implements OnInit {
     const oldSiteUrl = baseUrl + 'oldsite/index.html';
     window.document.location.href = oldSiteUrl;
   }
+
+  private initHangUpTimeout() {
+    setTimeout(() => {
+      this.selectedVideoChat = 'off';
+      alert('Videochat afgezet om kosten te besparen');
+      this.cd.markForCheck();
+    }, 5 * 60 * 60 * 1000); // 5 hours
+  }
+
 }
